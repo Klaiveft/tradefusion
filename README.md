@@ -6,11 +6,11 @@
 - NewsAPI - financial and crypto-related headlines
 
 ### - Environment Variables are loaded securely from a .env file using python-dotenv:
-
+```js
 ALPHA_VANTAGE_API_KEY=your_alpha_key
 FINNHUB_API_KEY=your_finnhub_key
 NEWS_API_KEY=your_news_key
-
+```
 ### Use of Generative AI Tools
 
 During the development of TradeFusion, I utilized ChatGPT (GPT-5) as a collaborative assistant throughout the design, coding, and optimization phases.
@@ -36,3 +36,6 @@ Finnhub API	https://finnhub.io/docs/api
 CoinGecko API	https://www.coingecko.com/en/api/documentation
 
 NewsAPI	https://newsapi.org/docs
+
+
+made by Pierre Bourgery
