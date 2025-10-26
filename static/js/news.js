@@ -5,7 +5,6 @@ const cryptoCards = document.getElementById("cryptoCards");
 
 // Load initial stock news
 loadNews("stocks");
-loadCryptoSummary();
 
 stockBtn.addEventListener("click", () => {
   stockBtn.classList.replace("bg-gray-700", "bg-blue-600");
@@ -53,30 +52,30 @@ async function loadNews(type = "stocks") {
   }
 }
 
-async function loadCryptoSummary() {
-  const res = await fetch("/crypto/summary");
-  const data = await res.json();
-  cryptoCards.innerHTML = "";
+// async function loadCryptoSummary() {
+//   const res = await fetch("/crypto/summary");
+//   const data = await res.json();
+//   cryptoCards.innerHTML = "";
 
-  Object.entries(data).forEach(([id, c]) => {
-    const change = c.usd_24h_change?.toFixed(2) ?? 0;
-    const isUp = change >= 0;
+//   Object.entries(data).forEach(([id, c]) => {
+//     const change = c.usd_24h_change?.toFixed(2) ?? 0;
+//     const isUp = change >= 0;
 
-    const card = document.createElement("div");
-    card.className =
-      "bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition flex flex-col";
-    card.innerHTML = `
-      <div class="flex justify-between mb-2">
-        <span class="font-semibold capitalize">${id}</span>
-        <span class="${isUp ? "text-green-400" : "text-red-400"}">${
-      isUp ? "▲" : "▼"
-    } ${Math.abs(change)}%</span>
-      </div>
-      <p>💲 ${c.usd.toLocaleString()}</p>
-      <p class="text-gray-400 text-xs">Mkt Cap: $${(
-        c.usd_market_cap / 1e9
-      ).toFixed(2)}B</p>
-    `;
-    cryptoCards.appendChild(card);
-  });
-}
+//     const card = document.createElement("div");
+//     card.className =
+//       "bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition flex flex-col";
+//     card.innerHTML = `
+//       <div class="flex justify-between mb-2">
+//         <span class="font-semibold capitalize">${id}</span>
+//         <span class="${isUp ? "text-green-400" : "text-red-400"}">${
+//       isUp ? "▲" : "▼"
+//     } ${Math.abs(change)}%</span>
+//       </div>
+//       <p>💲 ${c.usd.toLocaleString()}</p>
+//       <p class="text-gray-400 text-xs">Mkt Cap: $${(
+//         c.usd_market_cap / 1e9
+//       ).toFixed(2)}B</p>
+//     `;
+//     cryptoCards.appendChild(card);
+//   });
+// }

@@ -33,5 +33,5 @@ def get_crypto_data(ids: list[str], vs_currency: str = "usd"):
             print(f"⚠️ Failed to fetch extra data for {crypto_id}: {e}")
 
         results[crypto_id] = info
-
+    print(results)
     return results
